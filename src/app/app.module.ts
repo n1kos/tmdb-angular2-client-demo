@@ -8,6 +8,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MoveDetailsComponent } from './move-details/move-details.component';
 import { MovieCollectionsComponent } from './movie-collections/movie-collections.component';
 import { MovieCollectionsCreateComponent } from './movie-collections-create/movie-collections-create.component';
+import { MovieSearchComponent } from './movie-search/movie-search.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { MovieCollectionsCreateComponent } from './movie-collections-create/movi
     PageNotFoundComponent,
     MoveDetailsComponent,
     MovieCollectionsComponent,
-    MovieCollectionsCreateComponent
+    MovieCollectionsCreateComponent,
+    MovieSearchComponent,
+    MovieListComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

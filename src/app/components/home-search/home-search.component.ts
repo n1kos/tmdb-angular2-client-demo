@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
-import { Movie } from "../models/model-common";
-import { MoviesApiService } from "../movies-api.service";
+import { Movie } from "../../shared/models/model-common";
+import { MoviesApiService } from "../../shared/services/movies-api.service";
 @Component({
   selector: "home-search",
   templateUrl: "./home-search.component.html",

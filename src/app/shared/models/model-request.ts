@@ -1,3 +1,3 @@
 import { ApiToken } from "./model-common";
 
-export type GuestSessionRequest = ApiToken
+export type GuestSessionRequest = ApiToken;

@@ -11,6 +11,7 @@ import { MovieSearchComponent } from "./movie-search/movie-search.component";
 import { MovieListComponent } from "./movie-list/movie-list.component";
 import { MovieDetailsComponent } from "./movie-details/movie-details.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { ReactiveFormsModule } from "@angular/forms";
     MovieListComponent,
     MovieDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

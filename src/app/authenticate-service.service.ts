@@ -11,7 +11,7 @@ export class AuthenticateServiceService {
   private endPoint =
     "https://api.themoviedb.org/3/authentication/guest_session/new?";
 
-  constructor(apiToken: ApiToken, private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   httpHeader = {
     headers: new HttpHeaders({

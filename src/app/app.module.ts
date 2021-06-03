@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeSearchComponent } from './home-search/home-search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MoveDetailsComponent } from './move-details/move-details.component';
 import { MovieCollectionsComponent } from './movie-collections/movie-collections.component';
 import { MovieCollectionsCreateComponent } from './movie-collections-create/movie-collections-create.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
@@ -18,7 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeSearchComponent,
     PageNotFoundComponent,
-    MoveDetailsComponent,
     MovieCollectionsComponent,
     MovieCollectionsCreateComponent,
     MovieSearchComponent,

@@ -27,5 +27,6 @@ export class HomeSearchComponent implements OnInit {
 
   searchMovies(searchTerm: string | null = "") {
     console.log("search for", searchTerm)
+    this.movies = this.movies.filter(item=>item.title == searchTerm)
   }
 }

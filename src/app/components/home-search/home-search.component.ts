@@ -25,6 +25,11 @@ export class HomeSearchComponent implements OnInit {
 
   searchMovies(searchTerm: string | null = "") {
     console.log("search for", searchTerm);
-    this.movies = this.movies.filter((item) => item.title == searchTerm);
+    this.apiService.searchMovies(searchTerm).subscribe((data) => {
+      //@ts-expect-error noda
+      this.movies = data.results;
+      console.log(data);
+    });
+    // this.movies = this.movies.filter((item) => item.title == searchTerm);
   }
 }

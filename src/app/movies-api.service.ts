@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Movie } from './models/model-common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesApiService {
-  movies:number[] = [1,2,3,4,5,6]
+  movies:Movie[] = [{id:1, title: "m1"}, {id:2, title: "m2"}, {id:3, title: "m3"}]
   constructor() { }
 
   searchMovies() {

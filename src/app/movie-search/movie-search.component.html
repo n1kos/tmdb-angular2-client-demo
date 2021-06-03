@@ -1,6 +1,16 @@
 <p>movie-search works!</p>
 <div class="input-field">
-    <input type="search" name="movie-search" id="movie-search" #termInputValue [formControl]="termInput">
-    <button (click)="searchMovie(termInputValue.value)"><label class="label-icon" for="search"><i class="material-icons">search</i></label></button>
-    {{termInput.value}}
+  <input
+    type="search"
+    name="movie-search"
+    id="movie-search"
+    #termInputValue
+    [formControl]="termInput"
+  />
+  <button (click)="searchMovie(termInputValue.value)">
+    <label class="label-icon" for="search"
+      ><i class="material-icons">search</i></label
+    >
+  </button>
+  {{ termInput.value }}
 </div>

@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { HomeSearchComponent } from './home-search.component';
+import { HomeSearchComponent } from "./home-search.component";
 
-describe('HomeSearchComponent', () => {
+describe("HomeSearchComponent", () => {
   let component: HomeSearchComponent;
   let fixture: ComponentFixture<HomeSearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeSearchComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeSearchComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('HomeSearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

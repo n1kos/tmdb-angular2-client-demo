@@ -11,6 +11,7 @@ import { MovieCollectionsCreateComponent } from './movie-collections-create/movi
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

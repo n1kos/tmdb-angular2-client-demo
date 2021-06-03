@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-search',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-search.component.sass']
 })
 export class MovieSearchComponent implements OnInit {
-
+  
+  termInput = new FormControl();
   constructor() { }
 
   ngOnInit(): void {

@@ -1,2 +1,6 @@
 <p>movie-search works!</p>
-<input type="search" name="movie-search" id="movie-search">
+<div class="input-field">
+    <input type="search" name="movie-search" id="movie-search" [formControl]="termInput">
+    <button><label class="label-icon" for="search"><i class="material-icons">search</i></label></button>
+    {{termInput.value}}
+</div>

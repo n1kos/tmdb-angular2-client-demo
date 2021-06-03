@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
 import { Movie } from "../../shared/models/model-common";
 import { MoviesApiService } from "../../shared/services/movies-api.service";
 @Component({
@@ -10,14 +9,7 @@ import { MoviesApiService } from "../../shared/services/movies-api.service";
 export class HomeSearchComponent implements OnInit {
   movies: Movie[] = this.apiService.getMovies();
 
-  checkoutForm = this.formBuilder.group({
-    name: "",
-  });
-
-  constructor(
-    private apiService: MoviesApiService,
-    private formBuilder: FormBuilder
-  ) {}
+  constructor(private apiService: MoviesApiService) {}
 
   ngOnInit(): void {
     console.log(this.movies);

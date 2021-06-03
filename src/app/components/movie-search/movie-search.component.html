@@ -4,10 +4,9 @@
     type="search"
     name="movie-search"
     id="movie-search"
-    #termInputValue
     [formControl]="termInput"
   />
-  <button (click)="searchMovie(termInputValue.value)">
+  <button type="button" (click)="searchMovie(termInput.value)">
     <label class="label-icon" for="search"
       ><i class="material-icons">search</i></label
     >

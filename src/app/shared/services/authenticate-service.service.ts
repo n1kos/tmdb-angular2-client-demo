@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@angular/core";
-import { ApiToken, RequestTokens } from "../models/model-common";
+import { RequestTokens } from "../models/model-common";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { GuestSessionResponse } from "../models/model-response";
@@ -18,7 +18,7 @@ export class AuthenticateServiceService {
   ) {
     //this.api_key = ;
     this.GuestSessionSpec = {
-      api_key: param,
+      api_key: this.param,
       expires_at: new Date("1-1-1"),
       guest_session_id: "",
       success: false,

@@ -1,6 +1,6 @@
 <p>home-search works!</p>
 <form [formGroup]="checkoutForm" action="">
-<app-movie-search (newSearchEvent)="searchMovies()" ></app-movie-search>
+<app-movie-search (newSearchEvent)="searchMovies($event)" ></app-movie-search>
 </form>
 
 <app-movie-list [movie]="movie" *ngFor="let movie of movies"></app-movie-list>

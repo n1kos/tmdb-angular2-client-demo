@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { AuthenticateServiceService } from "./authenticate-service.service";
 
 @Component({
@@ -8,23 +8,14 @@ import { AuthenticateServiceService } from "./authenticate-service.service";
 })
 export class AppComponent implements OnInit {
   title = "tmdb-angular";
-  private api_key = "85204a8cc33baf447559fb6d51b18313";
+  private api_key = "fwfwef";
 
-  guest_id = "";
+  private guest_id = "";
   constructor(public authenticateService: AuthenticateServiceService) {}
 
-  fetchGuestSession() {
-    return this.authenticateService
-      .getGuestSession({ api_key: this.api_key })
-      .subscribe((data) => {
-        console.log(data);
-
-        this.guest_id = data.guest_session_id;
-        console.log(this.guest_id);
-      });
-  }
-
   ngOnInit() {
-    this.fetchGuestSession();
+    // store the guest session details in a service
+    this.authenticateService.createGuestSession();
+    console.log(this.authenticateService.logKey());
   }
 }

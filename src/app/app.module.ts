@@ -30,7 +30,9 @@ import { HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: "api_key", useValue: "85204a8cc33baf447559fb6d51b18313" },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

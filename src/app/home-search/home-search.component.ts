@@ -25,7 +25,7 @@ export class HomeSearchComponent implements OnInit {
     console.log(this.movies);
   }
 
-  searchMovies() {
-    console.log("search")
+  searchMovies(searchTerm: string | null = "") {
+    console.log("search for", searchTerm)
   }
 }

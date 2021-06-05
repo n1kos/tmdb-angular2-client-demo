@@ -5,6 +5,7 @@ import { MovieDetailsComponent } from "../components/movie-details/movie-details
 import { MovieCollectionsCreateComponent } from "../components/movie-collections-create/movie-collections-create.component";
 import { MovieCollectionsComponent } from "../components/movie-collections/movie-collections.component";
 import { PageNotFoundComponent } from "../components/page-not-found/page-not-found.component";
+import { SignInModalComponent } from "../signin.component";
 
 const routes: Routes = [
   { path: "", component: HomeSearchComponent },
@@ -12,6 +13,11 @@ const routes: Routes = [
   { path: "collections-create", component: MovieCollectionsCreateComponent },
   { path: "movie-details/:movie-id", component: MovieDetailsComponent },
   { path: "**", component: PageNotFoundComponent },
+  {
+    path: "signin",
+    component: SignInModalComponent,
+    outlet: "popup",
+  },
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
 @Component({
   selector: "app-movie-search",
   templateUrl: "./movie-search.component.html",
@@ -7,16 +7,16 @@ import { FormControl } from "@angular/forms";
 })
 export class MovieSearchComponent implements OnInit {
   @Output() newSearchEvent = new EventEmitter<string>();
-  termInput = new FormControl();
+  @Input() form!: FormGroup;
   constructor() {}
 
-  searchMovie(searchTerm: string) {
+  searchMovie() {
     // using without #prop in the template
     // this.newSearchEvent.emit(this.termInput.value)
     // console.log(this.termInput.value);
 
     //use with #prop in the template
-    this.newSearchEvent.emit(searchTerm);
+    this.newSearchEvent.emit();
     // console.log(searchTerm);
   }
 

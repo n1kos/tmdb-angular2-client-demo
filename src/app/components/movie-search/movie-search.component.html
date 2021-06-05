@@ -6,7 +6,7 @@
     id="movie-search"
     formControlName="searchMovie"
   />
-  <button type="button" (click)="searchMovie()">
+  <button [disabled]="!form.valid" type="button" (click)="searchMovie()">
     <label class="label-icon" for="search"
       ><i class="material-icons">search</i></label
     >

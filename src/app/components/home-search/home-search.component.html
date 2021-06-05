@@ -10,4 +10,4 @@
 </form>
 <pre>{{ form.value | json }}</pre>
 <app-movie-list [movie]="movie" *ngFor="let movie of movies"></app-movie-list>
-<app-pagination (newSearchEventWithPage)="searchMovies(form.value.searchMovie, $event)"></app-pagination>
+<app-pagination [pagesFeed]="pages" (newSearchEventWithPage)="searchMovies(form.value.searchMovie, $event)"></app-pagination>

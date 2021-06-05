@@ -10,6 +10,7 @@ import { MoviesApiService } from "../../shared/services/movies-api.service";
 })
 export class HomeSearchComponent implements OnInit {
   movies: Movie[] = this.apiService.getMovies();
+  pages = 1;
   form: FormGroup;
 
   constructor(private apiService: MoviesApiService, private fb: FormBuilder) {
@@ -30,8 +31,8 @@ export class HomeSearchComponent implements OnInit {
   searchMovies(searchTerm: string | null = "", page = 1) {
     console.log("search for", searchTerm);
     this.apiService.searchMovies(searchTerm, page).subscribe((data) => {
-      //@ts-expect-error noda
       this.movies = data.results;
+      this.pages = data.total_pages || 1;
       console.log(data);
     });
     // this.movies = this.movies.filter((item) => item.title == searchTerm);

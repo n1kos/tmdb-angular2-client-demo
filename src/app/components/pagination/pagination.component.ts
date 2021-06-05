@@ -1,3 +1,4 @@
+import { InvokeFunctionExpr } from "@angular/compiler";
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
@@ -6,8 +7,9 @@ import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./pagination.component.sass"],
 })
 export class PaginationComponent implements OnInit {
-  totalPages = [1, 2, 3, 4, 5];
+  totalPages = [1];
   activePage = 1;
+  @Input() pagesFeed!: number;
   @Output() newSearchEventWithPage = new EventEmitter<number>();
   constructor() {}
   gotoPage(page: number) {
@@ -19,5 +21,9 @@ export class PaginationComponent implements OnInit {
     this.newSearchEventWithPage.emit(page);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    for (let index = 2; index <= this.pagesFeed; index++) {
+      this.totalPages.push(index);
+    }
+  }
 }

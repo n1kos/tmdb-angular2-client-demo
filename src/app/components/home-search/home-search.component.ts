@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { alphaMin3 } from "src/app/directives/alphaMin3";
 import { Movie } from "../../shared/models/model-common";
 import { MoviesApiService } from "../../shared/services/movies-api.service";
 @Component({
@@ -14,12 +15,16 @@ export class HomeSearchComponent implements OnInit {
   constructor(private apiService: MoviesApiService, private fb: FormBuilder) {
     this.form = this.fb.group({
       childForm1: "",
-      searchMovie: ["", [Validators.required, Validators.maxLength(32)]],
+      searchMovie: ["", [Validators.required, alphaMin3()]],
     });
   }
 
   ngOnInit(): void {
     console.log(this.movies);
+  }
+
+  get f() {
+    return this.form.controls;
   }
 
   searchMovies(searchTerm: string | null = "") {

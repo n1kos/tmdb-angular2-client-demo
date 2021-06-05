@@ -4,6 +4,9 @@
     [form]="form"
     (newSearchEvent)="searchMovies(form.value.searchMovie)"
   ></app-movie-search>
+  <div *ngIf="f.searchMovie.errors?.wrong" class="invalid-feedback">
+    Only words with more than 3 letters are allowed
+  </div>
 </form>
 <pre>{{ form.value | json }}</pre>
 <app-movie-list [movie]="movie" *ngFor="let movie of movies"></app-movie-list>

@@ -1,14 +1,31 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Movie } from "src/app/shared/models/model-common";
+import { MoviesApiService } from "src/app/shared/services/movies-api.service";
 @Component({
-  template:
-    '<h1>Popup template</h1> <button (click)="onClose()"> Close </button>',
+  templateUrl: "./popup.component.html",
 })
 export class PopUpModalComponent implements OnInit {
-  constructor(private router: Router) {}
+  movie?: Movie;
+  movieId?: number;
+  private sub: any;
+  constructor(
+    private router: Router,
+    private apiService: MoviesApiService,
+    private route: ActivatedRoute
+  ) {}
 
   onClose() {
     this.router.navigate([{ outlets: { popup: null } }]);
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.route.params);
+    this.route.params.subscribe((params) => {
+      this.movieId = parseInt(params["movie-id"], 10);
+      this.apiService.gethMoviesDetails(this.movieId).subscribe((data) => {
+        this.movie = data;
+        console.log(this.movie);
+      });
+    });
+  }
 }

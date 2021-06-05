@@ -1,2 +1,8 @@
 movie info here id {{ movie.id }} title {{ movie.title }}
 movie info here
+
+<a
+  [routerLink]="[{ outlets: { popup: ['movies', 'movie-details', movie.id] } }]"
+>
+  Open Popup
+</a>

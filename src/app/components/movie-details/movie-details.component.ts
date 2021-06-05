@@ -10,5 +10,8 @@ export class MovieDetailsComponent implements OnInit {
   @Output() notify = new EventEmitter();
   constructor() {}
 
+  getLink() {
+    return `[{ outlets: { popup: ['movies', 'movie-details', '${this.movie.id}'] } }]`;
+  }
   ngOnInit(): void {}
 }

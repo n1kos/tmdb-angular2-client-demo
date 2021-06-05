@@ -2,7 +2,7 @@
 <form [formGroup]="form">
   <app-movie-search
     [form]="form"
-    (newSearchEvent)="searchMovies(form.value.searchMovie)"
+    (newSearchEvent)="searchMovies(form.value.searchMovie, 1)"
   ></app-movie-search>
   <div *ngIf="f.searchMovie.errors?.wrong" class="invalid-feedback">
     Only words with more than 3 letters are allowed
@@ -10,3 +10,4 @@
 </form>
 <pre>{{ form.value | json }}</pre>
 <app-movie-list [movie]="movie" *ngFor="let movie of movies"></app-movie-list>
+<app-pagination (newSearchEventWithPage)="searchMovies(form.value.searchMovie, $event)"></app-pagination>

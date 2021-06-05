@@ -8,11 +8,7 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class MoviesApiService {
-  movies: Movie[] = [
-    { id: 1, title: "m1" },
-    { id: 2, title: "m2" },
-    { id: 3, title: "m3" },
-  ];
+  movies: Movie[] = [];
 
   constructor(
     private authenticateServiceService: AuthenticateServiceService,

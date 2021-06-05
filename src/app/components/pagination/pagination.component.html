@@ -1,0 +1,9 @@
+<p>pagination works!</p>
+{{ activePage }}
+<ul *ngIf="totalPages.length > 1">
+  <li><button (click)="gotoPage(activePage - 1)">Previous</button></li>
+  <li *ngFor="let page of totalPages">
+    <button (click)="gotoPage(page)">{{ page }}</button>
+  </li>
+  <li><button (click)="gotoPage(activePage + 1)">Next</button></li>
+</ul>

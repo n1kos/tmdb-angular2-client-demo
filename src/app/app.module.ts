@@ -11,6 +11,7 @@ import { MovieListComponent } from "./components/movie-list/movie-list.component
 import { MovieDetailsComponent } from "./components/movie-details/movie-details.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from "@angular/common/http";
     MovieSearchComponent,
     MovieListComponent,
     MovieDetailsComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,9 +27,9 @@ export class HomeSearchComponent implements OnInit {
     return this.form.controls;
   }
 
-  searchMovies(searchTerm: string | null = "") {
+  searchMovies(searchTerm: string | null = "", page = 1) {
     console.log("search for", searchTerm);
-    this.apiService.searchMovies(searchTerm).subscribe((data) => {
+    this.apiService.searchMovies(searchTerm, page).subscribe((data) => {
       //@ts-expect-error noda
       this.movies = data.results;
       console.log(data);

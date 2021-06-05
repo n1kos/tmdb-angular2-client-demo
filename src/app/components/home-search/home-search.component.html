@@ -9,5 +9,9 @@
   </div>
 </form>
 <pre>{{ form.value | json }}</pre>
+{{ pages }}
 <app-movie-list [movie]="movie" *ngFor="let movie of movies"></app-movie-list>
-<app-pagination [pagesFeed]="pages" (newSearchEventWithPage)="searchMovies(form.value.searchMovie, $event)"></app-pagination>
+<app-pagination
+  [pagesFeed]="pages"
+  (newSearchEventWithPage)="searchMovies(form.value.searchMovie, $event)"
+></app-pagination>

@@ -1,5 +1,12 @@
 import { InvokeFunctionExpr } from "@angular/compiler";
-import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+} from "@angular/core";
 
 @Component({
   selector: "app-pagination",
@@ -21,9 +28,11 @@ export class PaginationComponent implements OnInit {
     this.newSearchEventWithPage.emit(page);
   }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges) {
     for (let index = 2; index <= this.pagesFeed; index++) {
       this.totalPages.push(index);
     }
   }
+
+  ngOnInit(): void {}
 }

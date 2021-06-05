@@ -1,4 +1,7 @@
 <router-outlet></router-outlet>
 <a [routerLink]="[{ outlets: { popup: ['signin'] } }]"> Open Popup </a>
+<a [routerLink]="[{ outlets: { popup: ['movies', 'movie-details', '1'] } }]">
+  Open Popup
+</a>
 <router-outlet name="popup"></router-outlet>
 <!-- {{ guest_id }} -->

@@ -9,10 +9,10 @@ import { MovieCollectionsCreateComponent } from "./components/movie-collections-
 import { MovieSearchComponent } from "./components/movie-search/movie-search.component";
 import { MovieListComponent } from "./components/movie-list/movie-list.component";
 import { MovieDetailsComponent } from "./components/movie-details/movie-details.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { PaginationComponent } from './components/pagination/pagination.component';
-
+import { PaginationComponent } from "./components/pagination/pagination.component";
+import { PopUpModalComponent } from "./components/popup/popup.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +24,11 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MovieListComponent,
     MovieDetailsComponent,
     PaginationComponent,
+    PopUpModalComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

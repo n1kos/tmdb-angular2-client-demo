@@ -32,3 +32,8 @@ export interface MovieDetails extends Movie {
 }
 
 export interface RequestTokens extends ApiToken, GuestSessionResponse {}
+
+export interface Rating {
+  name: string;
+  value: number;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Movie } from "src/app/shared/models/model-common";
+import { FormsModule } from "@angular/forms";
+import { Movie, Rating } from "src/app/shared/models/model-common";
 import { MoviesApiService } from "src/app/shared/services/movies-api.service";
 @Component({
   templateUrl: "./popup.component.html",
@@ -8,7 +9,12 @@ import { MoviesApiService } from "src/app/shared/services/movies-api.service";
 export class PopUpModalComponent implements OnInit {
   movie?: Movie;
   movieId?: number;
-  private sub: any;
+  selectedRatings = {rate:0};
+  ratings: Rating[] = [
+    { name: "1", value: 1 },
+    { name: "2", value: 2 },
+    { name: "3", value: 3 },
+  ];
   constructor(
     private router: Router,
     private apiService: MoviesApiService,

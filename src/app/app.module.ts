@@ -16,6 +16,9 @@ import { PopUpModalComponent } from "./components/popup/popup.component";
 import { LocalStorageModule } from "angular-2-local-storage";
 import { MovieCollectionsDetailsComponent } from './components/movie-collections-details/movie-collections-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from './material.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       storageType: "localStorage",
     }),
     BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     { provide: "api_key", useValue: "85204a8cc33baf447559fb6d51b18313" },

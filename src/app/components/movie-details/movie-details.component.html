@@ -1,8 +1,12 @@
-movie info here id {{ movie.id }} title {{ movie.title }}
-movie info here
-
 <a
   [routerLink]="[{ outlets: { popup: ['movies', 'movie-details', movie.id] } }]"
 >
-  Open Popup
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ movie.title }}</mat-card-title>
+      <mat-card-subtitle>{{ movie.poster_path }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ movie.id }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ movie.vote_average }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
 </a>

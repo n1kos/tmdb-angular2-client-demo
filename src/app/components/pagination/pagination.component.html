@@ -1,5 +1,3 @@
-<p>pagination works!</p>
-{{ activePage }}
 <ul *ngIf="totalPages.length > 1">
   <li>
     <button [disabled]="activePage == 1" (click)="gotoPage(activePage - 1)">

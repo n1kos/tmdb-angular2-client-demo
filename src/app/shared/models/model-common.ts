@@ -19,7 +19,7 @@ export interface Movie {
   id?: number;
   title?: string;
   poster_path?: string;
-  Vote_average?: number;
+  vote_average?: number;
 }
 export interface MovieDetails extends Movie {
   overview?: string;

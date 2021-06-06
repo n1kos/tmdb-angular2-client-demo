@@ -1,1 +1,12 @@
 <p>movie-collections works!</p>
+<ul>
+  <li *ngFor="let item of movieCollections; let i = index">
+    {{ item.title }}
+    {{ item.description }}
+    <button (click)="removeCollection(i)">Delete</button>
+  </li>
+</ul>
+
+<a [routerLink]="['/collections-create']" routerLinkActive="router-link-active"
+  >Add Collection</a
+>

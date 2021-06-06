@@ -30,9 +30,13 @@ export interface MovieDetails extends Movie {
   vote_count?: number;
   spoken_languages: Languages[];
 }
+export interface MovieCollection {
+  title: string;
+  description: string;
+  movies: MovieDetails[];
+}
 
 export interface RequestTokens extends ApiToken, GuestSessionResponse {}
-
 export interface Rating {
   name: string;
   value: number;

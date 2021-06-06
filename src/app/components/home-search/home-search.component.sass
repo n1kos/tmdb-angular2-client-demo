@@ -4,6 +4,18 @@ section
 
 .movie-list
     display: flex
-    flex-basis: 100%
-    *
-        flex-basis: 25%
+    flex-wrap: wrap
+    *:not(.search-placeholder)
+        padding: 30px 10px
+        text-align: center
+        margin: 5px
+        width: 300px
+        flex-basis: 300px
+        flex-grow: 1
+
+.search-placeholder
+    width: 300px
+    height: 0px
+    margin: 5px
+    flex-basis: 300px
+    flex-grow: 1

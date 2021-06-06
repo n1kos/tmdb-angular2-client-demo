@@ -9,7 +9,7 @@ import { MoviesApiService } from "src/app/shared/services/movies-api.service";
 export class PopUpModalComponent implements OnInit {
   movie?: Movie;
   movieId?: number;
-  selectedRatings = {rate:0};
+  selectedRatings = { rate: 0 };
   ratings: Rating[] = [
     { name: "1", value: 1 },
     { name: "2", value: 2 },
@@ -20,6 +20,11 @@ export class PopUpModalComponent implements OnInit {
     private apiService: MoviesApiService,
     private route: ActivatedRoute
   ) {}
+
+  rate() {
+    console.log("am i rating???");
+    this.apiService.rateMovies(0, 1);
+  }
 
   onClose() {
     this.router.navigate([{ outlets: { popup: null } }]);

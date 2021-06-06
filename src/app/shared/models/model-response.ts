@@ -7,3 +7,8 @@ export interface GuestSessionResponse {
 export interface MoviesResponse extends Movie, PageResults, MovieDetails {
   results: MovieDetails[];
 }
+
+export interface RateResponse {
+  status_code?: number;
+  status_message?: string;
+}

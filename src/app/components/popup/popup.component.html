@@ -1,12 +1,14 @@
 <h1>Popup template</h1>
 {{ movie?.title }}
+
 <form #ratingForm="ngForm" action="none">
   <label for="rating">Your rating</label>
-  <select>
+  <select title="rating">
     <option *ngFor="let item of ratings" [ngValue]="item.name">
       {{ item.value }}
     </option>
   </select>
+  <button (click)="rate()">Submit rating</button>
 </form>
 <button (click)="onClose()">Close</button>
 

@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { PaginationComponent } from "./components/pagination/pagination.component";
 import { PopUpModalComponent } from "./components/popup/popup.component";
 import { LocalStorageModule } from "angular-2-local-storage";
+import { MovieCollectionsDetailsComponent } from './components/movie-collections-details/movie-collections-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { LocalStorageModule } from "angular-2-local-storage";
     MovieDetailsComponent,
     PaginationComponent,
     PopUpModalComponent,
+    MovieCollectionsDetailsComponent,
   ],
   imports: [
     BrowserModule,

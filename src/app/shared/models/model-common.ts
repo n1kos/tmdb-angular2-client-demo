@@ -16,7 +16,7 @@ export interface PageResults {
   total_results?: number;
 }
 export interface Movie {
-  id: number;
+  id?: number;
   title?: string;
   poster_path?: string;
   Vote_average?: number;

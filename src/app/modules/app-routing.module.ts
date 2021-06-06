@@ -6,10 +6,15 @@ import { MovieCollectionsCreateComponent } from "../components/movie-collections
 import { MovieCollectionsComponent } from "../components/movie-collections/movie-collections.component";
 import { PageNotFoundComponent } from "../components/page-not-found/page-not-found.component";
 import { PopUpModalComponent } from "../components/popup/popup.component";
+import { MovieCollectionsDetailsComponent } from "../components/movie-collections-details/movie-collections-details.component";
 
 const routes: Routes = [
   { path: "", component: HomeSearchComponent },
   { path: "collections", component: MovieCollectionsComponent },
+  {
+    path: "collections-details/:collection-id",
+    component: MovieCollectionsDetailsComponent,
+  },
   { path: "collections-create", component: MovieCollectionsCreateComponent },
   { path: "movie-details/:movie-id", component: MovieDetailsComponent },
   { path: "**", component: PageNotFoundComponent },

@@ -1,0 +1,11 @@
+<p>movie-collections-details works!</p>
+<ul>
+  <li *ngFor="let item of movieCollections">
+    <a
+      [routerLink]="[
+        { outlets: { popup: ['/movies', 'movie-details', item.id] } }
+      ]"
+      >{{ item.id }}</a
+    >
+  </li>
+</ul>

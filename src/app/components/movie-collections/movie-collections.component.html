@@ -1,8 +1,10 @@
 <p>movie-collections works!</p>
 <ul>
   <li *ngFor="let item of movieCollections; let i = index">
-    {{ item.title }}
-    {{ item.description }}
+    <a [routerLink]="['/collections-details', i]">
+      {{ item.title }}
+      {{ item.description }}
+    </a>
     <button (click)="removeCollection(i)">Delete</button>
   </li>
 </ul>

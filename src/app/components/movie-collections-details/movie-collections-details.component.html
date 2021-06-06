@@ -3,7 +3,7 @@
   <li *ngFor="let item of movieCollections">
     <a
       [routerLink]="[
-        { outlets: { popup: ['/movies', 'movie-details', item.id] } }
+        { outlets: { popup: ['../../../movies', 'movie-details', item.id] } }
       ]"
       >{{ item.id }}</a
     >

@@ -23,6 +23,11 @@ const routes: Routes = [
     component: PopUpModalComponent,
     outlet: "popup",
   },
+  {
+    path: "collections-details/0/movies/movie-details/:movie-id",
+    component: PopUpModalComponent,
+    outlet: "popup",
+  },
 ];
 
 @NgModule({

@@ -51,7 +51,7 @@ export class MoviesApiService {
     return throwError("Something bad happened; please try again later.");
   }
 
-  rateMovies(movieId: number, rating: number): Subscription {
+  rateMovies(movieId: number, rating: number): Promise<RateResponse> {
     movieId = 617120; // will be using this test movie for not messing with their data a lot
     const apikey = this.authenticateServiceService.logKey().api_key;
     const guest_session_id =
@@ -63,11 +63,7 @@ export class MoviesApiService {
       }),
     };
     const reqBody: any = { value: rating };
-    const res = this.httpClient
-      .post<RateResponse>(endPoint, reqBody, httpOptions)
-      //@ts-expect-error
-      .pipe(catchError(this.handleError("addHero")));
-    return res.subscribe((data) => data);
+    return this.httpClient.post<RateResponse>(endPoint, reqBody, httpOptions).toPromise()
   }
 
   getMovies() {

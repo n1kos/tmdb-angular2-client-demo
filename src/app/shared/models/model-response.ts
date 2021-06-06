@@ -9,6 +9,7 @@ export interface MoviesResponse extends Movie, PageResults, MovieDetails {
 }
 
 export interface RateResponse {
+  success?: boolean;
   status_code?: number;
   status_message?: string;
 }

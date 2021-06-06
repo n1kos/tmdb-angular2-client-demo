@@ -3,17 +3,26 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { Movie, Rating } from "src/app/shared/models/model-common";
 import { MoviesApiService } from "src/app/shared/services/movies-api.service";
+import { RateResponse } from "src/app/shared/models/model-response";
 @Component({
   templateUrl: "./popup.component.html",
 })
 export class PopUpModalComponent implements OnInit {
   movie?: Movie;
   movieId?: number;
+  postMessage = "";
   selectedRatings = { rate: 0 };
   ratings: Rating[] = [
     { name: "1", value: 1 },
     { name: "2", value: 2 },
     { name: "3", value: 3 },
+    { name: "4", value: 4 },
+    { name: "5", value: 5 },
+    { name: "6", value: 6 },
+    { name: "7", value: 7 },
+    { name: "8", value: 8 },
+    { name: "9", value: 9 },
+    { name: "10", value: 10 },
   ];
   constructor(
     private router: Router,
@@ -21,10 +30,13 @@ export class PopUpModalComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  rate() {
-    console.log("am i rating???");
-    const res = this.apiService.rateMovies(0, 1);
-    console.log(res);
+  async rate() {
+    const RateResult: RateResponse = await this.apiService.rateMovies(0, 1);
+    if (RateResult.success) {
+      this.postMessage = "Rating successful";
+    } else {
+      this.postMessage = "Error in rating";
+    }
   }
 
   onClose() {

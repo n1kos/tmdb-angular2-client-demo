@@ -6,11 +6,10 @@ import {
   HttpHeaders,
 } from "@angular/common/http";
 import { AuthenticateServiceService } from "./authenticate-service.service";
-import { Observable, throwError } from "rxjs";
+import { Observable, Subscription, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
 import { MoviesResponse, RateResponse } from "../models/model-response";
 import { RateRequest } from "../models/model-request";
-
 @Injectable({
   providedIn: "root",
 })
@@ -52,9 +51,7 @@ export class MoviesApiService {
     return throwError("Something bad happened; please try again later.");
   }
 
-  rateMovies(movieId: number, rating: number): any {
-    console.log("i should be rating");
-
+  rateMovies(movieId: number, rating: number): Subscription {
     movieId = 617120; // will be using this test movie for not messing with their data a lot
     const apikey = this.authenticateServiceService.logKey().api_key;
     const guest_session_id =
@@ -66,20 +63,11 @@ export class MoviesApiService {
       }),
     };
     const reqBody: any = { value: rating };
-    return this.httpClient.post<any>(endPoint, reqBody, httpOptions).subscribe({
-      next: (data: any) => {
-        return data;
-      },
-      error: (error: any) => {
-        return error;
-      },
-    });
-
-    // this.httpClient
-    //   .post<any>(endPoint, reqBody, httpOptions)
-    //   .subscribe((data) => {
-    //     console.log("whatevs");
-    //   });
+    const res = this.httpClient
+      .post<RateResponse>(endPoint, reqBody, httpOptions)
+      //@ts-expect-error
+      .pipe(catchError(this.handleError("addHero")));
+    return res.subscribe((data) => data);
   }
 
   getMovies() {

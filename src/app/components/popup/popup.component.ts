@@ -23,7 +23,8 @@ export class PopUpModalComponent implements OnInit {
 
   rate() {
     console.log("am i rating???");
-    this.apiService.rateMovies(0, 1);
+    const res = this.apiService.rateMovies(0, 1);
+    console.log(res);
   }
 
   onClose() {

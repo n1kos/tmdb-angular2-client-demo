@@ -52,7 +52,7 @@ export class MoviesApiService {
     return throwError("Something bad happened; please try again later.");
   }
 
-  rateMovies(movieId: number, rating: number): void {
+  rateMovies(movieId: number, rating: number): any {
     console.log("i should be rating");
 
     movieId = 617120; // will be using this test movie for not messing with their data a lot
@@ -66,18 +66,20 @@ export class MoviesApiService {
       }),
     };
     const reqBody: any = { value: rating };
-    // return (
-    //   this.httpClient
-    //     .post<any>(endPoint, reqBody, httpOptions)
-    //     //@ts-expect-error gamhse mas
-    //     .pipe(catchError(this.handleError("addHero", rating)))
-    // );
+    return this.httpClient.post<any>(endPoint, reqBody, httpOptions).subscribe({
+      next: (data: any) => {
+        return data;
+      },
+      error: (error: any) => {
+        return error;
+      },
+    });
 
-    this.httpClient
-      .post<any>(endPoint, reqBody, httpOptions)
-      .subscribe((data) => {
-        console.log("whatevs");
-      });
+    // this.httpClient
+    //   .post<any>(endPoint, reqBody, httpOptions)
+    //   .subscribe((data) => {
+    //     console.log("whatevs");
+    //   });
   }
 
   getMovies() {

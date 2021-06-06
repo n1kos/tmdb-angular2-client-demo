@@ -15,6 +15,7 @@ import { PaginationComponent } from "./components/pagination/pagination.componen
 import { PopUpModalComponent } from "./components/popup/popup.component";
 import { LocalStorageModule } from "angular-2-local-storage";
 import { MovieCollectionsDetailsComponent } from './components/movie-collections-details/movie-collections-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { MovieCollectionsDetailsComponent } from './components/movie-collections
       prefix: "tmdbAppAngNB",
       storageType: "localStorage",
     }),
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: "api_key", useValue: "85204a8cc33baf447559fb6d51b18313" },

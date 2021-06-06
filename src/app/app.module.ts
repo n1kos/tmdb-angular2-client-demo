@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { PaginationComponent } from "./components/pagination/pagination.component";
 import { PopUpModalComponent } from "./components/popup/popup.component";
+import { LocalStorageModule } from "angular-2-local-storage";
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,10 @@ import { PopUpModalComponent } from "./components/popup/popup.component";
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    LocalStorageModule.forRoot({
+      prefix: "tmdbAppAngNB",
+      storageType: "localStorage",
+    }),
   ],
   providers: [
     { provide: "api_key", useValue: "85204a8cc33baf447559fb6d51b18313" },

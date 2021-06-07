@@ -5,7 +5,9 @@ export interface GuestSessionResponse {
   expires_at: Date;
 }
 export interface MoviesResponse extends Movie, PageResults, MovieDetails {
+  page: number;
   results: MovieDetails[];
+  total_results: number;
 }
 
 export interface RateResponse {

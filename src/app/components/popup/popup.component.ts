@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { FormsModule } from "@angular/forms";
 import { Movie, Rating } from "src/app/shared/models/model-common";
 import { MoviesApiService } from "src/app/shared/services/movies-api.service";
 import { RateResponse } from "src/app/shared/models/model-response";

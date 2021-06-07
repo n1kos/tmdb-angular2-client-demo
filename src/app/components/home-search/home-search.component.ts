@@ -1,8 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { alphaMin3 } from "src/app/directives/alphaMin3";
 import { Movie } from "../../shared/models/model-common";
 import { MoviesApiService } from "../../shared/services/movies-api.service";
+import {  PageEvent } from "@angular/material/paginator";
+
 @Component({
   selector: "home-search",
   templateUrl: "./home-search.component.html",
@@ -10,6 +12,11 @@ import { MoviesApiService } from "../../shared/services/movies-api.service";
 })
 export class HomeSearchComponent implements OnInit {
   movies: Movie[] = this.apiService.getMovies();
+  firstLastButtons = true;
+  pnDisabled = true;
+  hdPageSize = true;
+  pgIndex = 2;
+  total_results = 0;
   pages = 1;
   form: FormGroup;
 
@@ -20,21 +27,24 @@ export class HomeSearchComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    console.log(this.movies);
-  }
+  ngOnInit(): void {}
 
   get f() {
     return this.form.controls;
   }
 
+  onChangePage(pageChange: PageEvent) {
+    this.searchMovies(
+      this.form.controls.searchMovie.value,
+      pageChange.pageIndex + 1
+    );
+  }
+
   searchMovies(searchTerm: string | null = "", page = 1) {
-    console.log("search for", searchTerm);
     this.apiService.searchMovies(searchTerm, page).subscribe((data) => {
       this.movies = data.results;
       this.pages = data.total_pages || 1;
-      console.log(data);
+      this.total_results = data.total_results;
     });
-    // this.movies = this.movies.filter((item) => item.title == searchTerm);
   }
 }

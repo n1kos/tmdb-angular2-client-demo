@@ -11,7 +11,6 @@ import { MovieListComponent } from "./components/movie-list/movie-list.component
 import { MovieDetailsComponent } from "./components/movie-details/movie-details.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { PaginationComponent } from "./components/pagination/pagination.component";
 import { PopUpModalComponent } from "./components/popup/popup.component";
 import { LocalStorageModule } from "angular-2-local-storage";
 import { MovieCollectionsDetailsComponent } from './components/movie-collections-details/movie-collections-details.component';
@@ -29,7 +28,6 @@ import {MaterialModule} from './material.module';
     MovieSearchComponent,
     MovieListComponent,
     MovieDetailsComponent,
-    PaginationComponent,
     PopUpModalComponent,
     MovieCollectionsDetailsComponent,
   ],

@@ -21,9 +21,13 @@
   </div>
 
   <div class="results-pages">
-    <app-pagination
-      [pagesFeed]="pages"
-      (newSearchEventWithPage)="searchMovies(form.value.searchMovie, $event)"
-    ></app-pagination>
+    <mat-paginator
+      showFirstLastButtons="firstLastButtons"
+      hdPageSize="true;"
+      [length]="total_results"
+      (page)="onChangePage($event)"
+      [pageSize]="20"
+    >
+    </mat-paginator>
   </div>
 </section>

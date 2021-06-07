@@ -16,6 +16,7 @@ import { LocalStorageModule } from "angular-2-local-storage";
 import { MovieCollectionsDetailsComponent } from "./components/movie-collections-details/movie-collections-details.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material.module";
+import { GenericPopupComponent } from './components/generic-popup/generic-popup.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MaterialModule } from "./material.module";
     MovieDetailsComponent,
     PopUpModalComponent,
     MovieCollectionsDetailsComponent,
+    GenericPopupComponent,
   ],
   imports: [
     BrowserModule,

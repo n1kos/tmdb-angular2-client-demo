@@ -28,7 +28,7 @@ export interface MovieDetails extends Movie {
   revenue?: string;
   vote_average?: number;
   vote_count?: number;
-  spoken_languages: Languages[];
+  spoken_languages?: Languages[];
 }
 export interface MovieCollection {
   title: string;

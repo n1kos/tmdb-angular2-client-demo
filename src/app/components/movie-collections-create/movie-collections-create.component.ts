@@ -9,9 +9,34 @@ import { MovieCollection } from "src/app/shared/models/model-common";
 })
 export class MovieCollectionsCreateComponent implements OnInit {
   movieCollections: MovieCollection[] = [];
-  movieCollecion: MovieCollection = { title: "", description: "", movies: [] };
-  value = "";
-
+  movieCollecion: MovieCollection = {
+    title: "",
+    description: "",
+    movies: [
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+      { title: "title", id: 1 },
+    ],
+  };
   responseMessage = "";
   constructor(private _localStorageService: LocalStorageService) {}
 

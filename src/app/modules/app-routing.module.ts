@@ -26,10 +26,10 @@ const routes: Routes = [
   // cos i dont think i can reuse the custom at this point
   // but at least it shoudl be able to handle the addition
   // of movies as well.
-  {
-    path: "collections/movie-details/:movie-id",
-    component: MovieDetailsComponent,
-  },
+  // {
+  //   path: "collections/movie-details/:movie-id",
+  //   component: MovieDetailsComponent,
+  // },
   {
     path: "collections/collections-details/:collection-id",
     component: MovieCollectionsDetailsComponent,

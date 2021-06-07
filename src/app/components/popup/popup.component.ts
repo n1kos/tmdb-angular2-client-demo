@@ -5,6 +5,7 @@ import { MoviesApiService } from "src/app/shared/services/movies-api.service";
 import { RateResponse } from "src/app/shared/models/model-response";
 @Component({
   templateUrl: "./popup.component.html",
+  styleUrls: ["./popup.component.sass"],
 })
 export class PopUpModalComponent implements OnInit {
   movie?: Movie;

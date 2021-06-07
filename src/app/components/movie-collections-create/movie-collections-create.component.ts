@@ -8,21 +8,21 @@ import { MovieCollection } from "src/app/shared/models/model-common";
 })
 export class MovieCollectionsCreateComponent implements OnInit {
   movieCollections: MovieCollection[] = [];
+  movieCollecion:MovieCollection = {title:"", description:"", movies:[]}
+  hero = { name: "Dr.", alterEgo: "Dr. What" };
+
+
   responseMessage = "";
   constructor(private _localStorageService: LocalStorageService) {}
 
   onAddCollection() {
-    this.movieCollections.push({
-      title: "pushed",
-      description: "pushed",
-      movies: [],
-    });
+    this.movieCollections.push(this.movieCollecion);
     this._localStorageService.remove("collections");
     this._localStorageService.add("collections", this.movieCollections);
     this.responseMessage = "Collection Added!";
   }
 
   ngOnInit(): void {
-    this.movieCollections = this._localStorageService.get("collections");
+    this.movieCollections = this._localStorageService.get("collections") || [];
   }
 }

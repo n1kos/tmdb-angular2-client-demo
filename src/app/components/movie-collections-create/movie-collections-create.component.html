@@ -1,4 +1,82 @@
-<p>movie-collections-create works!</p>
-<input type="text" name="title" id="" />
-<input type="text" name="description" id="" />
-<button (click)="onAddCollection()">Add</button>
+<div>
+  <!-- <input type="text" name="title" />
+  <input type="text" name="description" />-->
+  <button (click)="onAddCollection()">Add</button>
+  <form #collectionsForm="ngForm" appIdentityRevealed>
+    <div [hidden]="collectionsForm.submitted">
+      <div
+        class="cross-validation"
+        [class.cross-validation-error]="
+          collectionsForm.errors?.identityRevealed &&
+          (collectionsForm.touched || collectionsForm.dirty)
+        "
+      >
+        <div class="form-group">
+          <label for="title">title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="form-control"
+            required
+            minlength="4"
+            [(ngModel)]="movieCollecion.title"
+            #title="ngModel"
+          />
+
+          <div
+            *ngIf="title.invalid && (title.dirty || title.touched)"
+            class="alert"
+          >
+            <div *ngIf="title.errors?.required">title is required.</div>
+            <div *ngIf="title.errors?.minlength">
+              title must be at least 4 characters long.
+            </div>
+            <div *ngIf="title.errors?.forbiddentitle">title cannot be Bob.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Alter Ego</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            #description="ngModel"
+            [(ngModel)]="movieCollecion.description"
+            [ngModelOptions]="{ updateOn: 'blur' }"
+            appUniquedescription
+          />
+
+          <div *ngIf="description.pending">Validating...</div>
+          <div *ngIf="description.invalid" class="alert alter-ego-errors">
+            <div *ngIf="description.errors?.uniquedescription">
+              Alter ego is already taken.
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="
+            collectionsForm.errors?.identityRevealed &&
+            (collectionsForm.touched || collectionsForm.dirty)
+          "
+          class="cross-validation-error-message alert"
+        >
+          Name cannot match alter ego.
+        </div>
+      </div>
+
+      <p>Complete the form to enable the Submit button.</p>
+      <button type="submit" [disabled]="collectionsForm.invalid">Submit</button>
+      <button type="button" (click)="collectionsForm.resetForm({})">
+        Reset
+      </button>
+    </div>
+
+    <div class="submitted-message" *ngIf="collectionsForm.submitted">
+      <p>You've submitted your hero, {{ collectionsForm.value.name }}!</p>
+      <button (click)="collectionsForm.resetForm({})">Add new hero</button>
+    </div>
+  </form>
+</div>

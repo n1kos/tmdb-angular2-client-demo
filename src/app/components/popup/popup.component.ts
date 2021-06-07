@@ -1,14 +1,20 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Movie, Rating } from "src/app/shared/models/model-common";
+import {
+  Movie,
+  MovieDetails,
+  Rating,
+} from "src/app/shared/models/model-common";
 import { MoviesApiService } from "src/app/shared/services/movies-api.service";
 import { RateResponse } from "src/app/shared/models/model-response";
+import { FormControl } from "@angular/forms";
 @Component({
   templateUrl: "./popup.component.html",
   styleUrls: ["./popup.component.sass"],
 })
 export class PopUpModalComponent implements OnInit {
-  movie?: Movie;
+  disableSelect = new FormControl(false);
+  movie?: MovieDetails;
   movieId?: number;
   postMessage = "";
   selectedRatings = { rate: 0 };
@@ -43,12 +49,10 @@ export class PopUpModalComponent implements OnInit {
     this.router.navigate([{ outlets: { popup: null } }]);
   }
   ngOnInit(): void {
-    console.log(this.route.params);
     this.route.params.subscribe((params) => {
       this.movieId = parseInt(params["movie-id"], 10);
       this.apiService.gethMoviesDetails(this.movieId).subscribe((data) => {
         this.movie = data;
-        console.log(this.movie);
       });
     });
   }

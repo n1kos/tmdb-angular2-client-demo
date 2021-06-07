@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Movie, Rating } from "../models/model-common";
+import { Movie, MovieDetails, Rating } from "../models/model-common";
 import {
   HttpClient,
   HttpErrorResponse,
@@ -30,10 +30,10 @@ export class MoviesApiService {
     return this.httpClient.get<MoviesResponse>(endPoint);
   }
 
-  gethMoviesDetails(searchTerm: number | null = 0): Observable<Movie> {
+  gethMoviesDetails(searchTerm: number | null = 0): Observable<MovieDetails> {
     const apikey = this.authenticateServiceService.logKey().api_key;
     const endPoint = `https://api.themoviedb.org/3/movie/${searchTerm}?api_key=${apikey}&language=en-US`;
-    return this.httpClient.get<Movie>(endPoint);
+    return this.httpClient.get<MovieDetails>(endPoint);
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -63,7 +63,9 @@ export class MoviesApiService {
       }),
     };
     const reqBody: any = { value: rating };
-    return this.httpClient.post<RateResponse>(endPoint, reqBody, httpOptions).toPromise()
+    return this.httpClient
+      .post<RateResponse>(endPoint, reqBody, httpOptions)
+      .toPromise();
   }
 
   getMovies() {

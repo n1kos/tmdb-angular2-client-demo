@@ -30,9 +30,11 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   imports: [
+    MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -72,6 +74,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatPaginatorModule,
   ],
   exports: [
+    MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,

@@ -1,16 +1,67 @@
 <div class="my-popup">
   <div class="my-popup-content">
-    {{ movie?.title }}
-    <form #ratingForm="ngForm" action="none">
-      <label for="rating">Your rating</label>
-      <select title="rating">
-        <option *ngFor="let item of ratings" [ngValue]="item.name">
-          {{ item.value }}
-        </option>
-      </select>
-      <button (click)="rate()">Submit rating</button>
-    </form>
-    <button (click)="onClose()">Close</button>
+    <div>
+      <ul class="popup-movie-data">
+        <li>
+          <h2>{{ movie?.title }}</h2>
+        </li>
+        <li>
+          <p>{{ movie?.overview }}</p>
+        </li>
+        <li>{{ movie?.poster_path }}</li>
+        <li><span>budget </span><span></span> {{ movie?.budget }}</li>
+        <li>
+          <span>release date</span><span>{{ movie?.release_date }}</span>
+        </li>
+        <li>
+          <span>revenue</span><span>{{ movie?.revenue }}</span>
+        </li>
+        <li>
+          <span>vote average</span><span>{{ movie?.vote_average }}</span>
+        </li>
+        <li>
+          <span>vote count</span><span>{{ movie?.vote_count }}</span>
+        </li>
+        <li>
+          <span>spoken languages</span
+          ><span *ngFor="let item of movie?.spoken_languages">{{
+            item?.name
+          }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="popup-rating">
+      <mat-form-field appearance="fill">
+        <form #ratingForm="ngForm" action="none">
+          <mat-label>Choose rating</mat-label>
+          <mat-select [(ngModel)]="selectedRatings" name="rating">
+            <mat-option *ngFor="let item of ratings" [value]="item.value">
+              {{ item.value }}
+            </mat-option>
+          </mat-select>
+        </form>
+      </mat-form-field>
+
+      <button
+        mat-button
+        color="primary"
+        [disabled]="ratingForm.invalid"
+        (click)="rate()"
+      >
+        Submit rating
+      </button>
+
+      <button
+        class="close"
+        (click)="onClose()"
+        mat-icon-button
+        color="primary"
+        aria-label="close"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
     {{ postMessage }}
     <!-- <app-movie-details-more></app-movie-details-more>
 original plan was to use this ↑, which would have more info. got an error of "i dont know what 

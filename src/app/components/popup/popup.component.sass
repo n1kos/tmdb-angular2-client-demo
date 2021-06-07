@@ -11,6 +11,7 @@
     justify-items: center
 
     .my-popup-content
+        font-size: 1.2rem
         margin: auto
         margin: auto
         background-color: white
@@ -18,5 +19,35 @@
         border-radius: 20px
         box-shadow: 8px 9px 83px -8px rgba(255,255,255,0.68)
         width: 35%
-        height: 35%
         opacity: 1
+        position: relative
+        top: 0
+        word-wrap: break-word
+
+.popup-movie-data
+    list-style-type: none
+    padding: 0
+    margin: auto
+    li
+        line-height: 1.4
+        span
+            &:first-child
+                text-transform: capitalize
+                margin-right: 10px
+                &::after
+                    content: ":"
+        &:first-child
+            background-color: antiquewhite
+        &:nth-child(2)
+            line-height: 1.2
+
+.close
+    position: absolute
+    top: 0
+    right: 5px
+
+.popup-rating
+    margin-top: 30px
+
+.mat-form-field
+    width: 100%

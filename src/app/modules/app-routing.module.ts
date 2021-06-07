@@ -11,23 +11,22 @@ import { MovieCollectionsDetailsComponent } from "../components/movie-collection
 const routes: Routes = [
   { path: "", component: HomeSearchComponent },
   { path: "collections", component: MovieCollectionsComponent },
-  {
-    path: "collections-details/:collection-id",
-    component: MovieCollectionsDetailsComponent,
-  },
+  // {
+  //   path: "collections-details/:collection-id",
+  //   component: MovieCollectionsDetailsComponent,
+  // },
   { path: "collections-create", component: MovieCollectionsCreateComponent },
-  { path: "movie-details/:movie-id", component: MovieDetailsComponent },
-  { path: "**", component: PageNotFoundComponent },
+  // { path: "movie-details/:movie-id", component: MovieDetailsComponent },
   {
     path: "movies/movie-details/:movie-id",
     component: PopUpModalComponent,
     outlet: "popup",
   },
   {
-    path: "collections-details/0/movies/movie-details/:movie-id",
-    component: PopUpModalComponent,
-    outlet: "popup",
+    path: "collections/collections-details/:collection-id",
+    component: MovieCollectionsDetailsComponent,
   },
+  { path: "**", component: PageNotFoundComponent },
 ];
 
 @NgModule({

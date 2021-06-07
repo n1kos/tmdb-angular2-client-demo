@@ -32,21 +32,6 @@
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
-
-          <!-- 
-          <label for="title">Title</label>
-          <input
-            matInput
-            type="text"
-            id="title"
-            name="title"
-            class="form-control"
-            required
-            minlength="2"
-            [(ngModel)]="movieCollecion.title"
-            #title="ngModel"
-          /> -->
-
           <div
             *ngIf="title.invalid && (title.dirty || title.touched)"
             class="alert"
@@ -59,17 +44,6 @@
         </div>
 
         <div class="form-group">
-          <!-- <label for="description">Description</label>
-          <input
-            matInput
-            type="text"
-            id="description"
-            name="description"
-            #description="ngModel"
-            [(ngModel)]="movieCollecion.description"
-            [ngModelOptions]="{ updateOn: 'blur' }"
-          /> -->
-
           <mat-form-field class="example-form-field">
             <mat-label>Collection description</mat-label>
             <input

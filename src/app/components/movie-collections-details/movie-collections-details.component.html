@@ -1,11 +1,16 @@
-<p>movie-collections-details works!</p>
-<ul>
-  <li *ngFor="let item of movieCollections">
-    <a
-      [routerLink]="[
-        { outlets: { popup: ['../../../movies', 'movie-details', item.id] } }
-      ]"
-      >{{ item.id }}</a
-    >
-  </li>
-</ul>
+<section>
+  there should be the list of added movies so the problem is that the popup
+  opens on enter, the popup should open when you click on a link below other
+  thatn that, it is okish
+  <ul>
+    <li *ngFor="let item of movieCollections">
+      <a
+        [routerLink]="[
+          { outlets: { popup: ['../../../movies', 'movie-details', item.id] } }
+        ]"
+        >{{ item.id }}</a
+      >
+    </li>
+  </ul>
+  <a routerLink="/movies/movie-details/12">wffewfwefwe</a>
+</section>

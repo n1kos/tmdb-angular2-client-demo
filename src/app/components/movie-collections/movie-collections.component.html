@@ -1,7 +1,7 @@
 <div class="movie-collections">
   <ul>
     <li *ngFor="let item of movieCollections; let i = index">
-      <a [routerLink]="['/collections-details', i]">
+      <a [routerLink]="['collections-details', i]">
         {{ item.title }}
         {{ item.description }}
       </a>

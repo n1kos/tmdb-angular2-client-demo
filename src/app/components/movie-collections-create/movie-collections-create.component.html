@@ -1,7 +1,4 @@
-<div>
-  <!-- <input type="text" name="title" />
-  <input type="text" name="description" />-->
-  <button (click)="onAddCollection()">Add</button>
+<section>
   <form #collectionsForm="ngForm" appIdentityRevealed>
     <div [hidden]="collectionsForm.submitted">
       <div
@@ -12,17 +9,43 @@
         "
       >
         <div class="form-group">
-          <label for="title">title</label>
+          <mat-form-field class="example-form-field">
+            <mat-label>Collection Title</mat-label>
+            <input
+              matInput
+              type="text"
+              name="title"
+              id="title"
+              required
+              minlength="2"
+              [(ngModel)]="movieCollecion.title"
+              #title="ngModel"
+              [ngModelOptions]="{ updateOn: 'blur' }"
+            />
+            <button
+              *ngIf="movieCollecion.title"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="movieCollecion.title = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <!-- 
+          <label for="title">Title</label>
           <input
+            matInput
             type="text"
             id="title"
             name="title"
             class="form-control"
             required
-            minlength="4"
+            minlength="2"
             [(ngModel)]="movieCollecion.title"
             #title="ngModel"
-          />
+          /> -->
 
           <div
             *ngIf="title.invalid && (title.dirty || title.touched)"
@@ -30,53 +53,67 @@
           >
             <div *ngIf="title.errors?.required">title is required.</div>
             <div *ngIf="title.errors?.minlength">
-              title must be at least 4 characters long.
+              title must be at least 2 characters long.
             </div>
-            <div *ngIf="title.errors?.forbiddentitle">title cannot be Bob.</div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="description">Alter Ego</label>
+          <!-- <label for="description">Description</label>
           <input
+            matInput
             type="text"
             id="description"
             name="description"
             #description="ngModel"
             [(ngModel)]="movieCollecion.description"
             [ngModelOptions]="{ updateOn: 'blur' }"
-            appUniquedescription
-          />
+          /> -->
 
-          <div *ngIf="description.pending">Validating...</div>
-          <div *ngIf="description.invalid" class="alert alter-ego-errors">
-            <div *ngIf="description.errors?.uniquedescription">
-              Alter ego is already taken.
-            </div>
-          </div>
-        </div>
-
-        <div
-          *ngIf="
-            collectionsForm.errors?.identityRevealed &&
-            (collectionsForm.touched || collectionsForm.dirty)
-          "
-          class="cross-validation-error-message alert"
-        >
-          Name cannot match alter ego.
+          <mat-form-field class="example-form-field">
+            <mat-label>Collection description</mat-label>
+            <input
+              matInput
+              type="text"
+              name="description"
+              id="description"
+              [(ngModel)]="movieCollecion.description"
+              #description="ngModel"
+            />
+            <button
+              *ngIf="movieCollecion.description"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="movieCollecion.description = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
         </div>
       </div>
-
-      <p>Complete the form to enable the Submit button.</p>
-      <button type="submit" [disabled]="collectionsForm.invalid">Submit</button>
-      <button type="button" (click)="collectionsForm.resetForm({})">
-        Reset
+      <button
+        [disabled]="collectionsForm.invalid"
+        mat-fab
+        color="primary"
+        (click)="onAddCollection()"
+      >
+        <mat-icon>add</mat-icon>
       </button>
     </div>
 
     <div class="submitted-message" *ngIf="collectionsForm.submitted">
-      <p>You've submitted your hero, {{ collectionsForm.value.name }}!</p>
-      <button (click)="collectionsForm.resetForm({})">Add new hero</button>
+      <p>Collection {{ collectionsForm.value.name }} created!</p>
+      <button
+        mat-button
+        color="primary"
+        (click)="collectionsForm.resetForm({})"
+      >
+        Add new collection
+      </button>
+      <a [routerLink]="['/collections']" routerLinkActive="router-link-active"
+        >See Collections</a
+      >
     </div>
   </form>
-</div>
+</section>

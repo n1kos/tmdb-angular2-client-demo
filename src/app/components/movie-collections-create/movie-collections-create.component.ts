@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { LocalStorageService } from "angular-2-local-storage";
 import { MovieCollection } from "src/app/shared/models/model-common";
+
 @Component({
   selector: "app-movie-collections-create",
   templateUrl: "./movie-collections-create.component.html",
@@ -8,9 +9,8 @@ import { MovieCollection } from "src/app/shared/models/model-common";
 })
 export class MovieCollectionsCreateComponent implements OnInit {
   movieCollections: MovieCollection[] = [];
-  movieCollecion:MovieCollection = {title:"", description:"", movies:[]}
-  hero = { name: "Dr.", alterEgo: "Dr. What" };
-
+  movieCollecion: MovieCollection = { title: "", description: "", movies: [] };
+  value = "";
 
   responseMessage = "";
   constructor(private _localStorageService: LocalStorageService) {}

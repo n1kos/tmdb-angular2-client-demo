@@ -7,6 +7,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
   styleUrls: ["./generic-popup.component.sass"],
 })
 export class GenericPopupComponent implements OnInit {
+  selected = null;
+
   constructor(
     public dialogRef: MatDialogRef<GenericPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any

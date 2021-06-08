@@ -20,23 +20,37 @@ export class MovieDetailsComponent implements OnInit {
   @Input() movieCollections: MovieCollection[] = [];
   @Output() notify = new EventEmitter();
   @Output() saveToCollection = new EventEmitter();
-  constructor(public dialog: MatDialog) {}
+  belongsToCollection = false;
 
+  constructor(public dialog: MatDialog) {}
+  removefromCollection() {}
   openDialog(): void {
     const dialogRef = this.dialog.open(GenericPopupComponent, {
-      width: "250px",
-      data: { name: this.movieCollections },
+      width: "50%",
+      data: { dataType: "collections", data: this.movieCollections },
     });
 
-    dialogRef.afterClosed().subscribe((result: MovieCollectionAdd) => {
-      const resultz = {
-        collectionIndex: 1,
-        movie: { id: this.movie.id || 0, title: this.movie.title },
-      };
-      console.log("The dialog was closed", resultz);
-      this.saveToCollection.emit(resultz);
+    dialogRef.afterClosed().subscribe((result: number) => {
+      if (result) {
+        const resultz = {
+          collectionIndex: result,
+          movie: { id: this.movie.id || 0, title: this.movie.title },
+        };
+        console.log("The dialog was closed", resultz);
+        this.saveToCollection.emit(resultz);
+      }
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const m = this.movie;
+    const ml = this.movieCollections;
+    if (
+      ml.filter((collection) => {
+        return collection.movies.find((inMovie) => inMovie.id == m.id);
+      }).length
+    ) {
+      this.belongsToCollection = true;
+    }
+  }
 }

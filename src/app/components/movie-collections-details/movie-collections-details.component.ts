@@ -48,7 +48,7 @@ export class MovieCollectionsDetailsComponent implements OnInit {
   openDialog(index = 0): void {
     const dialogRef = this.matDialog.open(GenericPopupComponent, {
       width: "250px",
-      data: { movieId: index },
+      data: { dataType: "movies", data: { movieId: index } },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

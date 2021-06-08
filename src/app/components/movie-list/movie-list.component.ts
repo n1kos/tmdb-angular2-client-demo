@@ -16,6 +16,7 @@ export class MovieListComponent implements OnInit {
   @Output() newMovieToCollectionEvent = new EventEmitter<MovieCollectionAdd>();
 
   constructor() {}
+
   saveToCollection(item: MovieCollectionAdd) {
     this.newMovieToCollectionEvent.emit(item);
   }

@@ -31,13 +31,13 @@ export class MovieDetailsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: number) => {
-      if (result) {
+      if (result !== undefined) {
         const resultz = {
           collectionIndex: result,
           movie: { id: this.movie.id || 0, title: this.movie.title },
         };
-        console.log("The dialog was closed", resultz);
         this.saveToCollection.emit(resultz);
+        this.belongsToCollection = true;
       }
     });
   }

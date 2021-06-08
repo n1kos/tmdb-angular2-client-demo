@@ -23,7 +23,7 @@ export class MovieDetailsComponent implements OnInit {
   belongsToCollection = false;
 
   constructor(public dialog: MatDialog) {}
-  removefromCollection() {}
+  // removefromCollection() {}
   openDialog(): void {
     const dialogRef = this.dialog.open(GenericPopupComponent, {
       width: "50%",

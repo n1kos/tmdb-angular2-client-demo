@@ -21,8 +21,9 @@ import { MovieDetailsComponent } from "../movie-details/movie-details.component"
   styleUrls: ["./movie-collections-details.component.sass"],
 })
 export class MovieCollectionsDetailsComponent implements OnInit {
+  _movieCollections: MovieCollection[] = [];
   movieCollections?: Movie[];
-  collectionId?: number;
+  collectionId = -1;
   // destroy = new Subject<any>();
   // currentDialog: MatDialogRef<any> | null = null;
   constructor(
@@ -30,44 +31,34 @@ export class MovieCollectionsDetailsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public matDialog: MatDialog
-  ) {
-    // route.params.pipe(takeUntil(this.destroy)).subscribe((params) => {
-    //   if (this.currentDialog) {
-    //     this.currentDialog.close();
-    //   }
-    //   this.currentDialog = matDialog.open(GenericPopupComponent, {
-    //     data: { movie: { title: "1", id: 3 } },
-    //   });
-    //   this.currentDialog.afterClosed().subscribe((result) => {
-    //     console.log("result");
-    //     // router.navigateByUrl("/");
-    //   });
-    // });
+  ) {}
+
+  removefromCollection(movieId = 0) {
+    const movieToDelete = this.movieCollections?.findIndex(
+      (movie) => movie.id == movieId
+    );
+    if (movieToDelete && movieToDelete >= 0) {
+      this._movieCollections[this.collectionId].movies.splice(1, 1);
+    }
+    this._localStorageService.set("collections", this._movieCollections);
   }
 
   openDialog(index = 0): void {
     const dialogRef = this.matDialog.open(GenericPopupComponent, {
-      width: "250px",
+      width: "50%",
       data: { dataType: "movies", data: { movieId: index } },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log("The dialog was closed");
-      // this.animal = result;
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
-
-  // ngOnDestroy() {
-  //   this.destroy.next();
-  // }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.collectionId = parseInt(params["collection-id"], 10);
-      const _movieCollections = this._localStorageService.get(
+      this._movieCollections = this._localStorageService.get(
         "collections"
       ) as Array<MovieCollection>;
-      this.movieCollections = _movieCollections[this.collectionId].movies;
+      this.movieCollections = this._movieCollections[this.collectionId].movies;
     });
   }
 }

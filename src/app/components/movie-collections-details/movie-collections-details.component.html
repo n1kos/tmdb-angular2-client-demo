@@ -3,6 +3,9 @@
   <ul>
     <li *ngFor="let item of movieCollections">
       <span (click)="openDialog(item.id)"> {{ item.title }}</span>
+      <button mat-raised-button (click)="removefromCollection(item.id)">
+        Remove from collection
+      </button>
     </li>
   </ul>
 </section>

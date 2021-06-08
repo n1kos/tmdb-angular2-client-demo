@@ -2,7 +2,11 @@
   <h1>Movies in Collection</h1>
   <ul>
     <li *ngFor="let item of movieCollections">
-      <span (click)="openDialog(item.id)"> {{ item.title }}</span>
+      <span (click)="openDialog(item.id)">
+        {{ item.title }}&nbsp;&nbsp;&nbsp;<span (click)="gotoThere(item.id)">
+          (..more)
+        </span>
+      </span>
       <button mat-raised-button (click)="removefromCollection(item.id)">
         Remove from collection
       </button>

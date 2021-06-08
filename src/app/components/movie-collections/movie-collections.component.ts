@@ -17,22 +17,5 @@ export class MovieCollectionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieCollections = this._localStorageService.get("collections") || [];
-    // this._localStorageService.add("collections", [
-    //   {
-    //     title: "1",
-    //     description: "1",
-    //     movies: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
-    //   },
-    //   {
-    //     title: "1",
-    //     description: "1",
-    //     movies: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
-    //   },
-    //   {
-    //     title: "1",
-    //     description: "1",
-    //     movies: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
-    //   },
-    // ]);
   }
 }

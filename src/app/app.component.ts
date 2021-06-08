@@ -16,6 +16,5 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // store the guest session details in a service
     this.authenticateService.createGuestSession();
-    console.log(this.authenticateService.logKey());
   }
 }

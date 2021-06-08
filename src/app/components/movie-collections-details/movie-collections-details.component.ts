@@ -1,20 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from "@angular/material/dialog";
-import { Router, ActivatedRoute } from "@angular/router";
+import { MatDialog } from "@angular/material/dialog";
+import { ActivatedRoute, Router } from "@angular/router";
 import { LocalStorageService } from "angular-2-local-storage";
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
-import {
-  Movie,
-  MovieCollection,
-  MovieDetails,
-} from "src/app/shared/models/model-common";
+import { Movie, MovieCollection } from "src/app/shared/models/model-common";
 import { GenericPopupComponent } from "../generic-popup/generic-popup.component";
-import { MovieDetailsComponent } from "../movie-details/movie-details.component";
 
 @Component({
   templateUrl: "./movie-collections-details.component.html",
@@ -24,13 +13,11 @@ export class MovieCollectionsDetailsComponent implements OnInit {
   _movieCollections: MovieCollection[] = [];
   movieCollections?: Movie[];
   collectionId = -1;
-  // destroy = new Subject<any>();
-  // currentDialog: MatDialogRef<any> | null = null;
   constructor(
     private _localStorageService: LocalStorageService,
-    private router: Router,
     private route: ActivatedRoute,
-    public matDialog: MatDialog
+    public matDialog: MatDialog,
+    public router: Router
   ) {}
 
   removefromCollection(movieId = 0) {
@@ -41,6 +28,10 @@ export class MovieCollectionsDetailsComponent implements OnInit {
       this._movieCollections[this.collectionId].movies.splice(1, 1);
     }
     this._localStorageService.set("collections", this._movieCollections);
+  }
+
+  gotoThere(moveiId = 0) {
+    this.router.navigateByUrl(`/(popup:movies/movie-details/${moveiId})`);
   }
 
   openDialog(index = 0): void {

@@ -40,9 +40,7 @@ export class AuthenticateServiceService {
   // use this as a wrapper to abstract the _getGuestSession call so the client of this service
   // does not have to know implentation details, ie what kind of parameters are needed
   createGuestSession() {
-    console.log("getting it", this.GuestSessionSpec.api_key);
     this._getGuestSession().subscribe((data) => {
-      console.log(data);
       (this.GuestSessionSpec.expires_at = data.expires_at),
         (this.GuestSessionSpec.guest_session_id = data.guest_session_id);
       this.GuestSessionSpec.success = data.success;

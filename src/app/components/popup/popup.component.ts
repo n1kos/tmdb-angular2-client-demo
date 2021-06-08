@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import {
   Movie,
   MovieDetails,
@@ -8,6 +8,8 @@ import {
 import { MoviesApiService } from "src/app/shared/services/movies-api.service";
 import { RateResponse } from "src/app/shared/models/model-response";
 import { FormControl } from "@angular/forms";
+import { Location } from "@angular/common";
+
 @Component({
   templateUrl: "./popup.component.html",
   styleUrls: ["./popup.component.sass"],
@@ -30,10 +32,11 @@ export class PopUpModalComponent implements OnInit {
     { name: "9", value: 9 },
     { name: "10", value: 10 },
   ];
+
   constructor(
-    private router: Router,
     private apiService: MoviesApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {}
 
   async rate() {
@@ -46,8 +49,9 @@ export class PopUpModalComponent implements OnInit {
   }
 
   onClose() {
-    this.router.navigate([{ outlets: { popup: null } }]);
+    this.location.back();
   }
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.movieId = parseInt(params["movie-id"], 10);

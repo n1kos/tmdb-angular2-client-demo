@@ -8,7 +8,7 @@ TMDB Angular 2 Client
 
     - A movie can only be added in one collection
     - The validation of the user input does not happen with a custom directive (so we can use a more generic reactive form)
-    - In the movie list under collection details, clicking on a movie title will open a generic popup that (would) hold the information and clicking on the (..more link) will open the same router outlet popup used in the movie search with the side-effect of navigating to "/" when closing thus losing the current position. I chose to try to implements both techniques, so this design led to this bug
+    - Rating happens on a single fixed test movie id to preserve data validity on their part
 
 # Requirements
 

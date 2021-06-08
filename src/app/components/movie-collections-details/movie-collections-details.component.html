@@ -2,7 +2,7 @@
   <h1>Movies in Collection</h1>
   <ul>
     <li *ngFor="let item of movieCollections">
-      <span (click)="openDialog(item.id)">
+      <span>
         {{ item.title }}&nbsp;&nbsp;&nbsp;<span (click)="gotoThere(item.id)">
           (..more)
         </span>

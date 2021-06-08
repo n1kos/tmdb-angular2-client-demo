@@ -1,9 +1,13 @@
 {
   "name": "tmdb-angular",
   "version": "0.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
+    "start": "node server.js",
     "ng": "ng",
-    "start": "ng serve",
+    "start_": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -22,6 +26,7 @@
     "@angular/platform-browser-dynamic": "~12.0.2",
     "@angular/router": "~12.0.2",
     "angular-2-local-storage": "^3.0.2",
+    "express": "^4.17.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

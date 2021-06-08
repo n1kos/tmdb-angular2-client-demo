@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnInit } from "@angular/core";
-import { Movie } from "../../shared/models/model-common";
+import { Movie, MovieCollection } from "../../shared/models/model-common";
 
 @Component({
   selector: "app-movie-list",
@@ -8,7 +8,11 @@ import { Movie } from "../../shared/models/model-common";
 })
 export class MovieListComponent implements OnInit {
   @Input() movie!: Movie;
+  @Input() movieCollections: MovieCollection[] = [];
 
+
+  
+  // @Output() movieCollections_: MovieCollection[] = [];
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,7 +1,11 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { alphaMin3 } from "src/app/directives/alphaMin3";
-import { Movie, MovieCollection } from "../../shared/models/model-common";
+import {
+  Movie,
+  MovieCollection,
+  MovieCollectionAdd,
+} from "../../shared/models/model-common";
 import { MoviesApiService } from "../../shared/services/movies-api.service";
 import { PageEvent } from "@angular/material/paginator";
 import { LocalStorageService } from "angular-2-local-storage";
@@ -47,9 +51,9 @@ export class HomeSearchComponent implements OnInit {
     );
   }
 
-  addMovieToCollection(item: any) {
-    alert(item);
-    this.movieCollections[item].movies.push()
+  addMovieToCollection(item: MovieCollectionAdd) {
+    this.movieCollections[item.collectionIndex].movies.push(item.movie);
+    this._localStorage.set("collections", this.movieCollections);
   }
 
   searchMovies(searchTerm: string | null = "", page = 1) {

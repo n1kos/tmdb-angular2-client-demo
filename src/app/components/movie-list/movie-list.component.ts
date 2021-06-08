@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output, OnInit } from "@angular/core";
-import { Movie, MovieCollection } from "../../shared/models/model-common";
+import {
+  Movie,
+  MovieCollection,
+  MovieCollectionAdd,
+} from "../../shared/models/model-common";
 
 @Component({
   selector: "app-movie-list",
@@ -9,11 +13,10 @@ import { Movie, MovieCollection } from "../../shared/models/model-common";
 export class MovieListComponent implements OnInit {
   @Input() movie!: Movie;
   @Input() movieCollections: MovieCollection[] = [];
-  @Output() newMovieToCollectionEvent = new EventEmitter<string>();
+  @Output() newMovieToCollectionEvent = new EventEmitter<MovieCollectionAdd>();
 
   constructor() {}
-  saveToCollection(item: any) {
-    alert(item);
+  saveToCollection(item: MovieCollectionAdd) {
     this.newMovieToCollectionEvent.emit(item);
   }
 

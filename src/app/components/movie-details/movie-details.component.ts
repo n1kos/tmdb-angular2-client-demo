@@ -4,7 +4,11 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
-import { Movie, MovieCollection } from "../../shared/models/model-common";
+import {
+  Movie,
+  MovieCollection,
+  MovieCollectionAdd,
+} from "../../shared/models/model-common";
 import { GenericPopupComponent } from "../generic-popup/generic-popup.component";
 @Component({
   selector: "app-movie-details",
@@ -24,9 +28,13 @@ export class MovieDetailsComponent implements OnInit {
       data: { name: this.movieCollections },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log("The dialog was closed", result);
-      this.saveToCollection.emit("result");
+    dialogRef.afterClosed().subscribe((result: MovieCollectionAdd) => {
+      const resultz = {
+        collectionIndex: 1,
+        movie: { id: this.movie.id || 0, title: this.movie.title },
+      };
+      console.log("The dialog was closed", resultz);
+      this.saveToCollection.emit(resultz);
     });
   }
 

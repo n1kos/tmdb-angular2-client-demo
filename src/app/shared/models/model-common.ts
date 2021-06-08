@@ -41,6 +41,6 @@ export interface Rating {
   value: number;
 }
 export interface MovieCollectionAdd {
-  collectionIndex: number
-  movieId: number
+  collectionIndex: number;
+  movie: Movie;
 }

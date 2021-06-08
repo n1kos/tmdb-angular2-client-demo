@@ -11,7 +11,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "prettier-eslint \"src/**/*.ts\" --write \"src/**/*.html\" --write \"src/**/*.js\" --write "
+    "lint": "prettier-eslint \"src/**/*.ts\" --write \"src/**/*.html\" --write \"src/**/*.js\" --write ",
+    "heroku-postinstall": "NODE_ENV=development && npm update && npm run build"
   },
   "private": true,
   "dependencies": {
@@ -54,5 +55,6 @@
     "prettier-eslint-cli": "^5.0.1",
     "typescript": "~4.2.3",
     "typescript-eslint": "*"
-  }
+  },
+  "_id": "tmdb-angular@0.0.0"
 }

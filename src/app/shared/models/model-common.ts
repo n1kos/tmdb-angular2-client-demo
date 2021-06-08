@@ -1,5 +1,4 @@
 import { GuestSessionResponse } from "./model-response";
-
 export interface ApiToken {
   api_key: string;
 }
@@ -40,4 +39,8 @@ export interface RequestTokens extends ApiToken, GuestSessionResponse {}
 export interface Rating {
   name: string;
   value: number;
+}
+export interface MovieCollectionAdd {
+  collectionIndex: number
+  movieId: number
 }

@@ -10,8 +10,12 @@
   </div>
 
   <div class="movie-list">
-    <app-movie-list [movieCollections]="movieCollections" [movie]="movie" *ngFor="let movie of movies"
-      >
+    <app-movie-list
+      (newMovieToCollectionEvent)="addMovieToCollection($event)"
+      [movieCollections]="movieCollections"
+      [movie]="movie"
+      *ngFor="let movie of movies"
+    >
     </app-movie-list>
     <div class="search-placeholder"></div>
     <div class="search-placeholder"></div>

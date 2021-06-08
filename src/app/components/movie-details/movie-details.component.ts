@@ -26,7 +26,7 @@ export class MovieDetailsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("The dialog was closed", result);
-      this.saveToCollection.emit(result);
+      this.saveToCollection.emit("result");
     });
   }
 

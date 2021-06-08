@@ -47,8 +47,9 @@ export class HomeSearchComponent implements OnInit {
     );
   }
 
-  alertMe() {
-    alert("fwefwef");
+  addMovieToCollection(item: any) {
+    alert(item);
+    this.movieCollections[item].movies.push()
   }
 
   searchMovies(searchTerm: string | null = "", page = 1) {

@@ -9,11 +9,13 @@ import { Movie, MovieCollection } from "../../shared/models/model-common";
 export class MovieListComponent implements OnInit {
   @Input() movie!: Movie;
   @Input() movieCollections: MovieCollection[] = [];
+  @Output() newMovieToCollectionEvent = new EventEmitter<string>();
 
-
-  
-  // @Output() movieCollections_: MovieCollection[] = [];
   constructor() {}
+  saveToCollection(item: any) {
+    alert(item);
+    this.newMovieToCollectionEvent.emit(item);
+  }
 
   ngOnInit(): void {}
 }

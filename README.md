@@ -1,3 +1,5 @@
+[![CodeScene Code Health](https://codescene.io/projects/16220/status-badges/code-health)](https://codescene.io/projects/16220)[![CodeScene System Mastery](https://codescene.io/projects/16220/status-badges/system-mastery)](https://codescene.io/projects/16220)[![CodeScene general](https://codescene.io/images/analyzed-by-codescene-badge.svg)](https://codescene.io/projects/16220)
+
 # Tech Assignment
 
 TMDB Angular 2 Client
